@@ -78,5 +78,13 @@ alias ..='cd ..'
 # Shell Integrations
 eval "$(fzf --zsh)"
 
+# use vim keybindings in the terminal
 set -o vi
+
+# fuzzy finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# exec tmux everytime, the terminal is opened
+if [[ -z "$TMUX" ]]; then
+  exec tmux
+fi
