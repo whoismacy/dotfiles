@@ -44,6 +44,7 @@ let g:ale_enabled = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_echo_cursor = 1
+
 " Enable specific linters
 let g:ale_linters = {
 \   'c': ['gcc', 'clang'],
@@ -61,6 +62,7 @@ let g:ale_fixers = {
 " Automatically fix on save
 let g:ale_fix_on_save = 1
 
+let g:workspace_autosave_always = 1
 
 if has('termguicolors')
   set termguicolors
@@ -79,6 +81,12 @@ inoremap <Down>  <C-o>:echo "Use j"<CR>
 
 autocmd BufRead,BufNewFile * if getline(1) =~ '^#!.*\(bash\|sh\)' | set filetype=sh | endif
 
+ " Required for vim-workspace(autosave)
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent execute "!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 Plug 'sainnhe/gruvbox-material'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -96,7 +104,9 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdtree'
 Plug 'haishanh/night-owl.vim'
+Plug 'thaerkh/vim-workspace'
+Plug 'christoomey/vim-system-copy'
 call plug#end()
 
-" colorscheme gruvbox-material
-colorscheme night-owl
+colorscheme gruvbox-material
+" colorscheme night-owl

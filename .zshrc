@@ -74,6 +74,7 @@ alias sc='shellcheck'
 alias tmuxconf='vim ~/.tmux.conf'
 alias valgrind='valgrind --show-leak-kinds=all --leak-check=full --track-origins=yes'
 alias ..='cd ..'
+alias py='python3'
 
 # Shell Integrations
 eval "$(fzf --zsh)"
