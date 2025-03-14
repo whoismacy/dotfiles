@@ -38,7 +38,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:user_emmet_expandabbr_keys = '<Tab>'
 let g:auto_save = 1  " enable AutoSave on Vim startup
-" let g:lightline = { 'colorscheme': 'gruvbox-material' }
+
 
 let g:ale_enabled = 1
 let g:ale_lint_on_save = 1
@@ -108,5 +108,5 @@ Plug 'thaerkh/vim-workspace'
 Plug 'christoomey/vim-system-copy'
 call plug#end()
 
-colorscheme gruvbox-material
-" colorscheme night-owl
+" colorscheme gruvbox-material
+colorscheme night-owl
