@@ -87,5 +87,5 @@ set -o vi
 
 # exec tmux everytime, the terminal is opened
 if [[ -z "$TMUX" ]]; then
-  exec tmux
+ exec tmux
 fi

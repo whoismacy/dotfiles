@@ -34,11 +34,14 @@ set termguicolors
 
 syntax enable
 
+let g:airline#extensions#tabline#formatter = 'default'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='kalisi'
 let g:user_emmet_expandabbr_keys = '<Tab>'
 let g:auto_save = 1  " enable AutoSave on Vim startup
-
+let g:everforest_background = 'hard'
+let g:everforest_better_performance = 1
 
 let g:ale_enabled = 1
 let g:ale_lint_on_save = 1
@@ -94,7 +97,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
-Plug 'phpactor/phpactor'
 Plug 'dense-analysis/ale'
 Plug 'tpope/vim-commentary'
 Plug 'ycm-core/YouCompleteMe'
@@ -106,7 +108,10 @@ Plug 'preservim/nerdtree'
 Plug 'haishanh/night-owl.vim'
 Plug 'thaerkh/vim-workspace'
 Plug 'christoomey/vim-system-copy'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'sainnhe/everforest'
 call plug#end()
 
 " colorscheme gruvbox-material
-colorscheme night-owl
+colorscheme everforest
