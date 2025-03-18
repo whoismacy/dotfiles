@@ -67,6 +67,9 @@ let g:ale_fix_on_save = 1
 
 let g:workspace_autosave_always = 1
 
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
 if has('termguicolors')
   set termguicolors
 endif
@@ -111,6 +114,7 @@ Plug 'christoomey/vim-system-copy'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sainnhe/everforest'
+Plug 'mattn/emmet-vim'
 call plug#end()
 
 " colorscheme gruvbox-material
