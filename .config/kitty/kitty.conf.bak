@@ -1,6 +1,6 @@
 # BEGIN_KITTY_THEME
-# Alien Blood
+# Atelier Estuary Dark
 include current-theme.conf
 # END_KITTY_THEME
 font_size 14
-font_family SpaceMono Nerd Font Mono
+font_family Monaspace Neon
