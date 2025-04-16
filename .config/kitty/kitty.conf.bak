@@ -1,6 +1,6 @@
 # BEGIN_KITTY_THEME
-# Atelier Estuary Dark
+# E-Ink
 include current-theme.conf
 # END_KITTY_THEME
-font_size 14
-font_family Monaspace Neon
+font_size 13
+font_family JetBrains Mono NL SemiBold

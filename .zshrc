@@ -87,6 +87,14 @@ set -o vi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # exec tmux everytime, the terminal is opened
-if [[ -z "$TMUX" ]]; then
- exec tmux
-fi
+# if [[ -z "$TMUX" ]]; then
+#  exec tmux
+# fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# Set vim as the default app to open the man pages.
+export MANPAGER='nvim +Man!'

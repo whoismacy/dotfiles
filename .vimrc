@@ -93,6 +93,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
+let ayucolor="dark"   " for dark version of theme
+
 call plug#begin('~/.vim/plugged')
 Plug 'sainnhe/gruvbox-material'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -115,7 +117,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sainnhe/everforest'
 Plug 'mattn/emmet-vim'
+Plug 'ayu-theme/ayu-vim'
 call plug#end()
 
-colorscheme gruvbox-material
+colorscheme ayu
+" colorscheme gruvbox-material
 " colorscheme everforest
