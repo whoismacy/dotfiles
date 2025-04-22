@@ -1,5 +1,5 @@
 # BEGIN_KITTY_THEME
-# E-Ink
+# E-Ink Dark
 include current-theme.conf
 # END_KITTY_THEME
 font_size 13

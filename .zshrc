@@ -98,3 +98,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # Set vim as the default app to open the man pages.
 export MANPAGER='nvim +Man!'
+. "/home/shrmrm/.deno/env"
