@@ -1,6 +1,6 @@
 # BEGIN_KITTY_THEME
-# E-Ink Dark
+# Atelier Estuary Dark
 include current-theme.conf
 # END_KITTY_THEME
 font_size 13
-font_family JetBrains Mono NL SemiBold
+font_family JetBrains Mono NL Light

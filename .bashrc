@@ -128,3 +128,4 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 . "/home/shrmrm/.deno/env"
+. "$HOME/.cargo/env"

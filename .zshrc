@@ -1,9 +1,10 @@
+# currently using oh-my-posh
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 export PATH="$HOME/.fzf/bin:$PATH"
 export FZF_DEFAULT_OPTS="--color=fg:#ffffff,bg:#1c1c1c,hl:#ff0000,fg+:#ffffff,bg+:#3c3c3c,hl+:#00ff00,info:#00ff00,prompt:#ff0000,pointer:#00ff00,marker:#ff0000,spinner:#00ff00"
@@ -20,7 +21,7 @@ fi
 source "${ZINIT_HOME}/zinit.zsh"
 
 #Add in Powerlevel 10k
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+# zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # Add in Snippets
 zinit snippet OMZP::git
@@ -42,10 +43,10 @@ bindkey '^n' history-search-forward
 autoload -U compinit && compinit
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # History
-HISTSIZE=9000
+HISTSIZE=12000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
@@ -64,6 +65,7 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 #Aliases
+alias cat="batcat"
 alias ls='ls --color'
 alias v='vim'
 alias n='nano'
@@ -73,9 +75,13 @@ alias zshrc='vim ~/.zshrc'
 alias sc='shellcheck'
 alias tmuxconf='vim ~/.tmux.conf'
 alias valgrind='valgrind --show-leak-kinds=all --leak-check=full --track-origins=yes'
-alias ..='cd ..'
+alias ..='z ..'
 alias py='python3'
 alias i3cf='vim /home/shrmrm/.config/i3/config'
+alias y='yazi'
+alias kittyconf='/home/shrmrm/.config/kitty/kitty.conf'
+alias e='eza --icons=always'
+alias pipes='pipes -R -f15 -p3 -t7'
 
 # Shell Integrations
 eval "$(fzf --zsh)"
@@ -99,3 +105,11 @@ export NVM_DIR="$HOME/.nvm"
 # Set vim as the default app to open the man pages.
 export MANPAGER='nvim +Man!'
 . "/home/shrmrm/.deno/env"
+
+POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+
+# necessary for zoxide
+ eval "$(zoxide init zsh)"
+
+ # starship -necessary
+ eval "$(starship init zsh)"

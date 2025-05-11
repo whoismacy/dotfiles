@@ -1,3 +1,4 @@
+packloadall
 set number
 set background=dark
 
@@ -37,7 +38,7 @@ syntax enable
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='sierra'
+let g:airline_theme='soda'
 let g:user_emmet_expandabbr_keys = '<Tab>'
 let g:auto_save = 1  " enable AutoSave on Vim startup
 let g:everforest_background = 'hard'
@@ -118,8 +119,12 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'sainnhe/everforest'
 Plug 'mattn/emmet-vim'
 Plug 'ayu-theme/ayu-vim'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install --frozen-lockfile --production',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 call plug#end()
 
-colorscheme ayu
+colorscheme night-owl
+" colorscheme ayu
 " colorscheme gruvbox-material
 " colorscheme everforest
