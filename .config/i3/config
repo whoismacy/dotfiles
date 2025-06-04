@@ -1,10 +1,24 @@
 # i3 config file (v4)
 
 # setting the wallpaper using feh
-exec_always feh --bg-scale ~/Wallps/black_leaves.png
+exec_always feh --bg-scale ~/Wallps/aldebran.jpg
+
+# checking if battery percentage less than 10 % percentage and
+# using kitty's osc (operating system command) to pass a notification
+exec --no-startup-id nohup /usr/local/bin/battery_management.sh &
+
+# kitti3
+exec_always --no-startup-id kitti3
+bindsym $mod+n nop kitti3
 
 # key binding to set up i3lock
-bindsym $mod+n exec i3lock --image /home/shrmrm/Wallps/plan.png --tiling --show-failed-attempts
+# bindsym $mod+y exec i3lock --image /home/shrmrm/Wallps/pattern.png --tiling --show-failed-attempts
+
+# Alternative (set last used background)
+# exec --no-startup-id source ~/.fehbg
+
+# exec betterlockscreen
+bindsym $mod+shift+x exec betterlockscreen -l -w
 
 # enable persistent p in p for firefox
 for_window [class="firefox" title="Picture-in-Picture"] floating enable, sticky enable
@@ -26,7 +40,7 @@ bindsym $mod+c exec --no-startup-id code
 set $mod Mod4
 
 # lock delay / timeout using xset
-exec --no-startup-id xset s 300 5      # 5 min standby, 5 sec fade
+exec --no-startup-id xset s 600 5      # 5 min standby, 5 sec fade
 exec --no-startup-id xset dpms 600 600 600    # turn off display after 10 mins
 
 # border style for new windows
@@ -35,7 +49,7 @@ hide_edge_borders both
 default_floating_border pixel 2
 
 # Font for window titles. Will also be used by the bar unless a different font is set.
-font pango:JetBrains Mono NL 10 # Increased font size to 10
+font pango:Ubuntu Regular 10 # Increased font size to 10
 
 # sth to do with the touchpad
 exec input set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
@@ -53,7 +67,10 @@ exec --no-startup-id picom
 # they are included here as an example. Modify as you see fit.
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --image /home/shrmrm/Wallps/plan.png --tiling --show-failed-attempts
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --image /home/shrmrm/Wallps/pattern.png --tiling --show-failed-attempts
+
+# using xss-lock to use betterlockscreen after a time of inactivity
+exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -214,22 +231,18 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 bar {
-    status_command i3status
+    status_command i3blocks
+    font pango: Droid Sans Mono 7
     mode hide
-    hidden_state hide
-    colors {
-        background #394b70
-        statusline #c0caf5
-        separator #fb2819
-
-        focused_workspace  #394b70 #1e1e1e #a9b1d6
-        active_workspace   #394b70 #1e1e1e #a9b1d6
-        inactive_workspace #7c6f64 #282828 #a89984
-        urgent_workspace     #fb4934 #282828 #fbf1c7
-        }
 }
 
-client.focused          #c0caf5 #1e1e1e #c0caf5 #b4f9f8
-client.focused_inactive #565f89 #1e1e1e #c0caf5 #565f89
-client.unfocused        #394b70 #1e1e1e #a9b1d6 #394b70
-client.urgent           #ff757f #1e1e1e #c0caf5 #ff757f
+
+# client.focused          #c0caf5 #1e1e1e #c0caf5 #b4f9f8
+# client.focused_inactive #565f89 #1e1e1e #c0caf5 #565f89
+# client.unfocused        #394b70 #1e1e1e #a9b1d6 #394b70
+# client.urgent           #ff757f #1e1e1e #c0caf5 #ff757f
+
+client.focused          #1e1e1e #1e1e1e #c0caf5 #b4f9f8
+client.focused_inactive #1e1e1e #1e1e1e #c0caf5 #565f89
+client.unfocused        #1e1e1e #1e1e1e #60657b #394b70
+client.urgent           #ff757f #1e1e1e #fff #ff757f

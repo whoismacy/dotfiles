@@ -1,6 +1,6 @@
-packloadall
+packloadall | silent! helptags ALL
 set number
-set background=dark
+set background=light
 
 syntax on
 filetype plugin indent on
@@ -35,15 +35,11 @@ set termguicolors
 
 syntax enable
 
-let g:airline#extensions#tabline#formatter = 'default'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='soda'
 let g:user_emmet_expandabbr_keys = '<Tab>'
 let g:auto_save = 1  " enable AutoSave on Vim startup
-let g:everforest_background = 'hard'
-let g:everforest_better_performance = 1
 
+" let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
 let g:ale_enabled = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
@@ -55,19 +51,18 @@ let g:ale_linters = {
 \   'python': ['flake8', 'pylint'],
 \   'html': ['htmlhint'],
 \   'css': ['stylelint'],
+\   'javascript': ['eslint'],
 \}
 
 " Enable specific fixers
 let g:ale_fixers = {
 \   'c': ['clang-format'],
 \   'python': ['black', 'autopep8'],
+\   'javascript': ['prettier'],
 \}
 
-" Automatically fix on save
-let g:ale_fix_on_save = 1
 
 let g:workspace_autosave_always = 1
-
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
@@ -111,20 +106,13 @@ Plug 'tpope/vim-surround'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdtree'
-Plug 'haishanh/night-owl.vim'
 Plug 'thaerkh/vim-workspace'
 Plug 'christoomey/vim-system-copy'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'sainnhe/everforest'
 Plug 'mattn/emmet-vim'
-Plug 'ayu-theme/ayu-vim'
+Plug 'morhetz/gruvbox'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install --frozen-lockfile --production',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 call plug#end()
 
-colorscheme night-owl
-" colorscheme ayu
-" colorscheme gruvbox-material
-" colorscheme everforest
+" colorscheme gruvbox

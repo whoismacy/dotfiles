@@ -67,8 +67,6 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 #Aliases
 alias cat="batcat"
 alias ls='ls --color'
-alias v='vim'
-alias n='nano'
 alias bashrc='vim ~/.bashrc'
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
@@ -77,11 +75,17 @@ alias tmuxconf='vim ~/.tmux.conf'
 alias valgrind='valgrind --show-leak-kinds=all --leak-check=full --track-origins=yes'
 alias ..='z ..'
 alias py='python3'
-alias i3cf='vim /home/shrmrm/.config/i3/config'
+alias i3cf='vim ~/.config/i3/config'
 alias y='yazi'
-alias kittyconf='/home/shrmrm/.config/kitty/kitty.conf'
+alias kittyconf='vim ~/.config/kitty/kitty.conf'
 alias e='eza --icons=always'
 alias pipes='pipes -R -f15 -p3 -t7'
+alias yt='yt-dlp -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4] / bv*+ba/b"'
+alias tpdf='termpdf.py'
+alias gcc='gcc -Wall -Wextra -Wpedantic'
+alias aria2c='aria2c --seed-time=0'
+alias n='nvim'
+alias v='vim'
 
 # Shell Integrations
 eval "$(fzf --zsh)"
@@ -103,7 +107,9 @@ export NVM_DIR="$HOME/.nvm"
 
 
 # Set vim as the default app to open the man pages.
-export MANPAGER='nvim +Man!'
+# export MANPAGER='vim +Man!'
+
+# necessary for running deno
 . "/home/shrmrm/.deno/env"
 
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
@@ -112,4 +118,23 @@ POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
  eval "$(zoxide init zsh)"
 
  # starship -necessary
- eval "$(starship init zsh)"
+ if [[ "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select" || \
+    "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select-wrapped" ]]; then
+  zle -N zle-keymap-select ""
+fi
+eval "$(starship init zsh)"
+
+ # adding .local/bin to path
+ export PATH="$HOME/.local/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/home/shrmrm/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+#
+
+# adding nvim to path
+export PATH="$PATH:/opt/nvim/"
