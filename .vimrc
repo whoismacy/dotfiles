@@ -1,6 +1,6 @@
 packloadall | silent! helptags ALL
 set number
-set background=light
+set background=dark
 
 syntax on
 filetype plugin indent on
@@ -35,7 +35,11 @@ set termguicolors
 
 syntax enable
 
+
+" emmet
 let g:user_emmet_expandabbr_keys = '<Tab>'
+
+" auto-save
 let g:auto_save = 1  " enable AutoSave on Vim startup
 
 " let g:ale_fix_on_save = 1
@@ -44,6 +48,11 @@ let g:ale_enabled = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_echo_cursor = 1
+
+ " instant markdown options
+let g:instant_markdown_port = 8888
+let g:instant_markdown_python = 1
+let g:instant_markdown_theme = 'dark'
 
 " Enable specific linters
 let g:ale_linters = {
@@ -89,9 +98,10 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
-let ayucolor="dark"   " for dark version of theme
+let ayucolor="dark"
 
 call plug#begin('~/.vim/plugged')
+Plug 'tribela/vim-transparent'
 Plug 'sainnhe/gruvbox-material'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -110,9 +120,25 @@ Plug 'thaerkh/vim-workspace'
 Plug 'christoomey/vim-system-copy'
 Plug 'mattn/emmet-vim'
 Plug 'morhetz/gruvbox'
+Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install --frozen-lockfile --production',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
-" colorscheme gruvbox
+let g:airline_theme = 'zenburn'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail' " unique_tail, 'filename'
+
+colorscheme gruvbox-material
+
+highlight Normal guibg=NONE
+highlight Normal ctermbg=NONE
+highlight EndOfBuffer guibg=NONE ctermbg=NONE
+highlight NonText guibg=NONE ctermbg=NONE
+highlight LineNr guibg=NONE ctermbg=NONE
+highlight SignColumn guibg=NONE ctermbg=NONE
+highlight FoldColumn guibg=NONE ctermbg=NONE

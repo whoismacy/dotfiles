@@ -46,7 +46,7 @@ autoload -U compinit && compinit
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # History
-HISTSIZE=12000
+HISTSIZE=15000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
@@ -79,13 +79,14 @@ alias i3cf='vim ~/.config/i3/config'
 alias y='yazi'
 alias kittyconf='vim ~/.config/kitty/kitty.conf'
 alias e='eza --icons=always'
-alias pipes='pipes -R -f15 -p3 -t7'
+alias pipes='pipes -R -f13 -p2 -t8'
 alias yt='yt-dlp -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4] / bv*+ba/b"'
 alias tpdf='termpdf.py'
 alias gcc='gcc -Wall -Wextra -Wpedantic'
 alias aria2c='aria2c --seed-time=0'
 alias n='nvim'
 alias v='vim'
+alias 'git log'='git log --oneline --graph --all';
 
 # Shell Integrations
 eval "$(fzf --zsh)"
@@ -96,10 +97,6 @@ set -o vi
 # fuzzy finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# exec tmux everytime, the terminal is opened
-# if [[ -z "$TMUX" ]]; then
-#  exec tmux
-# fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

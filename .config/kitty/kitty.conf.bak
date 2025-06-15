@@ -1,26 +1,22 @@
 # BEGIN_KITTY_THEME
-# Toy Chest
+# Gruvbox Dark
 include current-theme.conf
 # END_KITTY_THEME
 
-# background_image /home/shrmrm/Wallps/spaw.png
+background_image /home/shrmrm/Wallps/spaw.png
 
-# background_image_layout centered
-# background_tint 0.1
-# background_tint_gaps 0.4
+background_image_layout centered
+background_tint 0.1
+background_tint_gaps 0.4
+background_opacity 0.80
+background_blur 30
 
 font_size 13
-fonrt_family Monaspace Neon Regular
+font_family Monaspace Neon Regular
 disable_ligatures never
 font_features Monaspace Neon Regular +liga
 line_height 1.1
 
-cursor_shape beam
-cursor_color #c0caf5
-cursor_blink_interval 0
-
 map ctrl+shift+n new_window
 map ctrl+shift+t new_tab
 map ctrl+shift+s kitten hints
-
-allow_remote_control yes
